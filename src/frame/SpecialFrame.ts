@@ -1,12 +1,12 @@
 const { v4: uuidv4 } = require('uuid');
-import { Bonus } from "./bonus/Bonus";
-import { IBonusEvaluator } from "./bonus/IBonusEvaulator";
-import { FrameCompleteException } from "./error/FrameCompleteException";
-import { InvalidKnockedDownPinsCount } from "./error/InvalidKnockedDownPinsCount";
-import { Frame } from "./frame/Frame";
-import { Player } from "./Player";
-import { Rack } from "./Rack";
-import { Roll } from "./Roll";
+import { Bonus } from "../bonus/Bonus";
+import { IBonusEvaluator } from "../bonus/IBonusEvaulator";
+import { FrameCompleteException } from "../error/FrameCompleteException";
+import { InvalidKnockedDownPinsCount } from "../error/InvalidKnockedDownPinsCount";
+import { Frame } from "../frame/Frame";
+import { Player } from "../Player";
+import { Rack } from "../Rack";
+import { Roll } from "../Roll";
 
 export class SpecialFrame extends Frame {
     private _maxCapRollsInLastFrame: number;

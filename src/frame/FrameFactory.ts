@@ -2,9 +2,8 @@ const { v4: uuidv4 } = require('uuid');
 import { Frame } from "./Frame";
 import { IBonusEvaluator } from "../bonus/IBonusEvaulator";
 import { IFrame } from "./IFrame";
-import { SpecialFrame } from "../SpecialFrame";
+import { SpecialFrame } from "./SpecialFrame";
 import { Player } from "../Player";
-import { Roll } from "../Roll";
 import { IGameConfig } from "../config/IGameConfig";
 
 export class FrameFactory {
