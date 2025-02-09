@@ -10,7 +10,5 @@ export interface IFrame {
 
     getTotalPinsKnockedDown(): number
 
-    get rolls(): Roll[];
-
     get player(): Player;
 }
