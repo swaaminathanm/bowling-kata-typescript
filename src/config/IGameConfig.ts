@@ -7,10 +7,12 @@ export interface IGameConfig {
         strike: {
             enabled: boolean;
             bonusRolls: number;
+            rollsRequiredToKnockDownAllPins: number;
         };
         spare: {
             enabled: boolean;
             bonusRolls: number;
+            rollsRequiredToKnockDownAllPins: number;
         };
     };
     players: {

@@ -14,10 +14,12 @@ describe('The Bowling Game', () => {
             strike: {
                 enabled: true,
                 bonusRolls: 2,
+                rollsRequiredToKnockDownAllPins: 1
             },
             spare: {
                 enabled: true,
                 bonusRolls: 1,
+                rollsRequiredToKnockDownAllPins: 2
             },
         },
         players: [

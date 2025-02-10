@@ -8,12 +8,14 @@ export class SpareBonus implements Bonus {
     private _roll: Roll;
     private _bonusRolls: number;
     private _rack: Rack;
+    private _rollsRequiredToKnocdownAllRolls: number;
 
-    constructor(frame: IFrame, roll: Roll, rack: Rack, bonusRolls: number) {
+    constructor(frame: IFrame, roll: Roll, rack: Rack, bonusRolls: number, rollsRequiredToKnocdownAllRolls: number) {
         this._frame = frame;
         this._roll = roll;
         this._bonusRolls = bonusRolls;
         this._rack = rack;
+        this._rollsRequiredToKnocdownAllRolls = rollsRequiredToKnocdownAllRolls;
     }
 
     get bonusRolls(): number {
@@ -29,7 +31,7 @@ export class SpareBonus implements Bonus {
             return sum;
         }, 0);
 
-        return (rollsOverCount === 2) && (this._frame.getTotalPinsKnockedDown() >= this._rack.totalPins)
+        return (rollsOverCount === this._rollsRequiredToKnocdownAllRolls) && (this._frame.getTotalPinsKnockedDown() >= this._rack.totalPins)
     }
 
     calculate(): number {

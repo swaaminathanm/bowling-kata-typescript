@@ -25,7 +25,8 @@ export class BonusEvaulator implements IBonusEvaluator {
         }
 
         if (bonusConfig.spare?.enabled) {
-            const bonus = new SpareBonus(frame, roll, rack, bonusConfig.spare.bonusRolls);
+            const bonus = new SpareBonus(frame, roll, rack, bonusConfig.spare.bonusRolls,
+                bonusConfig.spare.rollsRequiredToKnockDownAllPins);
             if (bonus.eval()) {
                 return bonus;
             }
