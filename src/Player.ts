@@ -10,6 +10,10 @@ export class Player {
         this._name = name;
     }
 
+    public get rolls(): Roll[] {
+        return this._rolls;
+    }
+
     public get name(): string {
         return this._name;
     }

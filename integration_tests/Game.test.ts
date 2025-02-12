@@ -58,15 +58,15 @@ describe('The Bowling Game', () => {
         |-------|--------|--------|-------------|-------------|-------------------|
         |   1   |   10   |   -    |   10 + 10   |     30      |        30         |
         |   2   |   10   |   -    |   10 + 10   |     30      |        60         |
-        |   2   |   10   |   -    |   -         |     -       |        60         |
-        |   2   |   10   |   -    |   -         |     -       |        60         |
+        |   2   |   10   |   -    |   10        |     20      |        80         |
+        |   2   |   10   |   -    |   -         |     10      |        90         |
         */
         game.roll(10, playerName);
         game.roll(10, playerName);
         game.roll(10, playerName);
         game.roll(10, playerName);
 
-        expect(game.score(playerName)).toBe(60);
+        expect(game.score(playerName)).toBe(90);
     });
 
     test('should successfully complete a game with all zeros', () => {
@@ -102,7 +102,7 @@ describe('The Bowling Game', () => {
         |-------|--------|--------|-------------|-------------------|
         |   1   |   5    |   5    |     15      |        15         |
         |   2   |   5    |   5    |     15      |        30         |
-        |   2   |   5    |   -    |     -       |        30         |
+        |   2   |   5    |   -    |     5       |        35         |
         */
         game.roll(5, playerName);
         game.roll(5, playerName);
@@ -110,7 +110,7 @@ describe('The Bowling Game', () => {
         game.roll(5, playerName);
         game.roll(5, playerName);
 
-        expect(game.score(playerName)).toBe(30);
+        expect(game.score(playerName)).toBe(35);
     });
 
     test('should correctly calculate score with a spare bonus in the last frame', () => {
@@ -125,14 +125,14 @@ describe('The Bowling Game', () => {
         |-------|--------|--------|-------------|-------------------|
         |   1   |   10   |   -    |     20      |        20         |
         |   2   |    5   |    5   |     20      |        40         |
-        |   2   |   10   |   -    |     -       |        40         |
+        |   2   |   10   |   -    |     10      |        50         |
         */
         game.roll(10, playerName);
         game.roll(5, playerName);
         game.roll(5, playerName);
         game.roll(10, playerName);
 
-        expect(game.score(playerName)).toBe(40);
+        expect(game.score(playerName)).toBe(50);
     });
 
     test('should correctly calculate score with a strike bonus in the last frame', () => {
@@ -147,15 +147,15 @@ describe('The Bowling Game', () => {
         |-------|--------|--------|-------------|-------------------|
         |   1   |   10   |   -    |   24        |        24         |
         |   2   |   10   |   -    |   18        |        42         |
-        |   2   |   4    |   -    |     -       |        42         |
-        |   2   |   4    |   -    |     -       |        42         |
+        |   2   |   4    |   -    |    4        |        46         |
+        |   2   |   4    |   -    |    4        |        50         |
         */
         game.roll(10, playerName);
         game.roll(10, playerName);
         game.roll(4, playerName);
         game.roll(4, playerName);
 
-        expect(game.score(playerName)).toBe(42);
+        expect(game.score(playerName)).toBe(50);
     });
 
     test('should correctly calculate score with no bonus in the last frame', () => {

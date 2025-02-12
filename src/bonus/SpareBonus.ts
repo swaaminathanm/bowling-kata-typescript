@@ -31,7 +31,7 @@ export class SpareBonus implements Bonus {
             return sum;
         }, 0);
 
-        return (rollsOverCount === this._rollsRequiredToKnocdownAllRolls) && (this._frame.getTotalPinsKnockedDown() >= this._rack.totalPins)
+        return (rollsOverCount === this._rollsRequiredToKnocdownAllRolls) && this._rack.isCompleted()
     }
 
     calculate(): number {

@@ -58,9 +58,9 @@ export class SpecialFrame extends Frame {
         }
     }
 
-    calculateScore(): number {
-        return this.getTotalPinsKnockedDown();
-    }
+    // calculateScore(): number {
+    //     return this.getTotalPinsKnockedDown();
+    // }
 
     isComplete(): boolean {
         const completedRollsCount: number = this.getCompletedRollsCount();

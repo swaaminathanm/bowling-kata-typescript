@@ -67,6 +67,10 @@ export class Frame implements IFrame {
         return this._racks[this._racks.length - 1].isCompleted() || isRollsOver;
     }
 
+    public get racks(): Rack[] {
+        return this._racks;
+    }
+
     public get id(): string {
         return this._id;
     }
