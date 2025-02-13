@@ -1,5 +1,5 @@
-import { Rack } from "./Rack";
-import { Roll } from "./Roll";
+import { Rack } from "../Rack";
+import { Roll } from "../Roll";
 
 describe('Rack', () => {
     test('should get all the knocked down pins', () => {

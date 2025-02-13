@@ -2,7 +2,6 @@ import { IGame } from "./IGame";
 import { Player } from "../Player";
 import { IGameConfig } from '../config/IGameConfig';
 import { IFrame } from "../frame/IFrame";
-import { Roll } from "../Roll";
 import { PlayerNotFoundError } from "../error/PlayerNotFoundError";
 import { FrameFactory } from "../frame/FrameFactory";
 import { FrameNotAvailableError } from "../error/FrameNotAvailableError";

@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { IGameConfig } from './IGameConfig';
 
 export const GameConfig: IGameConfig = {

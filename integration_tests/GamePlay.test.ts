@@ -3,6 +3,8 @@ import { BonusEvaulator } from '../src/bonus/BonusEvaulator';
 import { IBonusEvaluator } from '../src/bonus/IBonusEvaulator';
 import { IGameConfig } from '../src/config/IGameConfig';
 import { InvalidKnockedDownPinsCount } from '../src/error/InvalidKnockedDownPinsCount';
+import { PlayerNotFoundError } from '../src/error/PlayerNotFoundError';
+import { FrameNotAvailableError } from '../src/error/FrameNotAvailableError';
 
 describe('The Bowling Game', () => {
     const mockGameConfig: IGameConfig = {
@@ -27,6 +29,29 @@ describe('The Bowling Game', () => {
         ],
     };
     const bonusEvaluator: IBonusEvaluator = new BonusEvaulator(mockGameConfig);
+
+    test('should throw exception when roll happens for a player that is not found', () => {
+        const game: Game = new Game(mockGameConfig, bonusEvaluator);
+        expect(() => { game.roll(5, 'some non existant player') }).toThrow(PlayerNotFoundError);
+    });
+
+    test('should throw exception when roll happens but frame is not available', () => {
+        const game: Game = new Game(mockGameConfig, bonusEvaluator);
+        const playerName: string = mockGameConfig.players[0].name;
+
+        expect(() => {
+            game.roll(4, playerName);
+            game.roll(3, playerName);
+            game.roll(2, playerName);
+            game.roll(1, playerName);
+            game.roll(1, playerName);
+        }).toThrow(FrameNotAvailableError);
+    });
+
+    test('should throw exception when score is calculated for a player that is not found', () => {
+        const game: Game = new Game(mockGameConfig, bonusEvaluator);
+        expect(() => { game.score('some non existant player') }).toThrow(PlayerNotFoundError);
+    });
 
     test('should successfully complete a perfect game with no bonus at all', () => {
         const game: Game = new Game(mockGameConfig, bonusEvaluator);

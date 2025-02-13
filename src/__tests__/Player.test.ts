@@ -1,5 +1,5 @@
-import { Player } from "./Player";
-import { Roll } from "./Roll";
+import { Player } from "../Player";
+import { Roll } from "../Roll";
 
 describe('Player', () => {
     test('should get the Nth roll completed by the player', () => {
@@ -23,5 +23,17 @@ describe('Player', () => {
         player.addRoll(roll2);
 
         expect(player.getNthRollFromCurrentRoll(roll1, 2)).toBeNull();
+    });
+
+    test('should return null when the given roll is not found', () => {
+        const roll1: Roll = new Roll('123', 5, true);
+        const roll2: Roll = new Roll('321', 4, true);
+        const randomRoll: Roll = new Roll('3213', 4, true);
+        const player: Player = new Player('Player1');
+
+        player.addRoll(roll1);
+        player.addRoll(roll2);
+
+        expect(player.getNthRollFromCurrentRoll(randomRoll, 2)).toBeNull();
     });
 });
