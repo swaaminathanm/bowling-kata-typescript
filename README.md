@@ -4,6 +4,9 @@ https://kata-log.rocks/bowling-game-kata
 # Game Play 
 To understand the game play and run various scenarios please refer and run the tests under **<root>/integration_tests/GamePlay.test.ts**
 
+# UML Class Design
+![UML class design diagram](design.png)
+
 # Run Tests with Coverage
 ```
 npm install
@@ -13,7 +16,4 @@ npm test
 
 **Generated coverage report:**
 
-![alt text](image-1.png)
-
-# Design
-![alt text](image.png)
+![Test soverage screenshot](coverage.png)
