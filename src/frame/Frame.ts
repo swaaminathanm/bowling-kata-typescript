@@ -14,7 +14,6 @@ export class Frame implements IFrame {
     protected _maxRollsPerFrame: number;
     protected _player: Player;
     protected _id: string
-    protected _rolls: Roll[] = [];
     protected _bonusEvaulator: IBonusEvaluator;
 
     constructor(id: string, maxPinsInTheRack: number, maxRollsPerFrame: number, player: Player, bonusEvaulator: IBonusEvaluator) {
@@ -41,7 +40,6 @@ export class Frame implements IFrame {
         }
 
         const roll: Roll = new Roll(`roll_${uuidv4()}`);
-        this._rolls.push(roll);
         rack!.addRoll(roll);
         this.player.addRoll(roll);
 
@@ -74,20 +72,16 @@ export class Frame implements IFrame {
         return this._id;
     }
 
-    public get rolls(): Roll[] {
-        return this._rolls;
-    }
-
     public get player(): Player {
         return this._player;
     }
 
     public getTotalPinsKnockedDown(): number {
-        return this._rolls.reduce((sum, roll) => sum + roll.pinsKnockedDown, 0);
+        return this._racks.reduce((sum, rack) => sum + rack.getKnockedDownPins(), 0);
     }
 
     protected getCompletedRollsCount(): number {
-        return this._rolls.filter((roll) => roll.completed).length;
+        return this._racks.reduce((count, rack) => count + rack.getCompletedRolls().length, 0);
     }
 
     protected getLastNonCompletedRack(): Rack | null {

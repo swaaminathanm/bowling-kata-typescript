@@ -1,20 +1,23 @@
 import { Roll } from "./Roll";
 
 export class Rack {
-    private _hitPins: number = 0;
     private _rolls: Roll[] = [];
     readonly totalPins: number;
 
     constructor(totalPins: number) {
         this.totalPins = totalPins;
     }
-    
+
     get rolls(): Roll[] {
         return this._rolls;
     }
 
     public addRoll(roll: Roll): void {
         this._rolls.push(roll);
+    }
+
+    getCompletedRolls(): Roll[] {
+        return this._rolls.filter(roll => roll.completed);
     }
 
     getKnockedDownPins(): number {

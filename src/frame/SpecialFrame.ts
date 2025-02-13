@@ -35,7 +35,6 @@ export class SpecialFrame extends Frame {
         }
 
         const roll: Roll = new Roll(`roll_${uuidv4()}`);
-        this._rolls.push(roll);
         rack!.addRoll(roll);
         this.player.addRoll(roll);
 
@@ -56,10 +55,6 @@ export class SpecialFrame extends Frame {
             this._racks.push(new Rack(this._maxPinsInTheRack));
         }
     }
-
-    // calculateScore(): number {
-    //     return this.getTotalPinsKnockedDown();
-    // }
 
     isComplete(): boolean {
         const completedRollsCount: number = this.getCompletedRollsCount();
