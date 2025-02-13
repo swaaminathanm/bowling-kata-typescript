@@ -36,7 +36,7 @@ export class Frame implements IFrame {
 
         const rack: Rack | null = this.getLastNonCompletedRack();
 
-        if (rack!.canAllowToHit(pinsKnockedDown)) {
+        if (!rack!.canAllowToHit(pinsKnockedDown)) {
             throw new InvalidKnockedDownPinsCount();
         }
 
@@ -46,7 +46,6 @@ export class Frame implements IFrame {
         this.player.addRoll(roll);
 
         roll.pinsKnockedDown = pinsKnockedDown;
-        rack!.hitPins = pinsKnockedDown;
         roll.completed = true;
 
         const applicableBonus: Bonus | null = this._bonusEvaulator.getApplicableBonus(this, roll, rack!);

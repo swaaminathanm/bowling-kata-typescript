@@ -1,4 +1,3 @@
-import { InvalidKnockedDownPinsCount } from "./error/InvalidKnockedDownPinsCount";
 import { Roll } from "./Roll";
 
 export class Rack {
@@ -9,17 +8,9 @@ export class Rack {
     constructor(totalPins: number) {
         this.totalPins = totalPins;
     }
-
-    get hitPins(): number {
-        return this._hitPins;
-    }
-
+    
     get rolls(): Roll[] {
         return this._rolls;
-    }
-
-    set hitPins(pins: number) {
-        this._hitPins += pins;
     }
 
     public addRoll(roll: Roll): void {
@@ -27,18 +18,18 @@ export class Rack {
     }
 
     getKnockedDownPins(): number {
-        return this._rolls.reduce((sum, roll) => roll.pinsKnockedDown, 0);
+        return this._rolls.reduce((sum, roll) => sum + roll.pinsKnockedDown, 0);
     }
 
     getAvailablePins(): number {
-        return this.totalPins - this._hitPins;
+        return this.totalPins - this.getKnockedDownPins();
     }
 
     canAllowToHit(pinsKnockedDown: number): boolean {
-        return (this.getKnockedDownPins() + pinsKnockedDown) > this.totalPins;
+        return (this.getKnockedDownPins() + pinsKnockedDown) <= this.totalPins;
     }
 
     isCompleted(): boolean {
-        return this._hitPins >= this.totalPins;
+        return this.getKnockedDownPins() >= this.totalPins;
     }
 }

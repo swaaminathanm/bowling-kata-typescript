@@ -33,9 +33,7 @@ describe('SpareBonus', () => {
 
         const rack = new Rack(10);
         rack.addRoll(new Roll('1234', 5, true));
-        rack.hitPins = 5;
         rack.addRoll(roll);
-        rack.hitPins = 5;
 
         const mockPlayer = new MockPlayer('Player1', [], []);
         mockPlayer.getNthRollFromCurrentRoll.mockReturnValueOnce(new Roll('431', 4, true));
@@ -62,9 +60,7 @@ describe('SpareBonus', () => {
 
         const rack = new Rack(10);
         rack.addRoll(new Roll('1234', 5, true));
-        rack.hitPins = 5;
         rack.addRoll(roll);
-        rack.hitPins = 5;
 
         const mockPlayer = new MockPlayer('Player1', [], []);
         mockPlayer.getNthRollFromCurrentRoll.mockReturnValueOnce(null);

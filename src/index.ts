@@ -1,2 +1,2 @@
-const message: string = "Please run the tests inside <root>/tests folder. I have nothing to run...";
+const message = "Please run the tests using \"npm test\". I have nothing to run...";
 console.log(message);

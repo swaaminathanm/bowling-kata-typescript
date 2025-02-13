@@ -11,7 +11,6 @@ module.exports = {
         '!src/**/index.ts',
         '!src/setupTests.ts',
         '!src/**/mocks/**',
-        '!src/error/**',
     ],
     coverageReporters: ['text', 'html', 'lcov'],
 };
