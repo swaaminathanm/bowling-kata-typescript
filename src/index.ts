@@ -1,2 +1,2 @@
-const message = "Please run the tests using \"npm test\". I have nothing to run...";
+const message = "To understand the game play and run various scenarios please refer and run the tests under <projectRoot>/integration_tests/GamePlay.test.ts. I have nothing to run...";
 console.log(message);
